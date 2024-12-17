@@ -5,361 +5,104 @@ import 'package:myapp/app/modules/search/controllers/search_explore_controller.d
 
 class SearchExploreView extends GetView<SearchExploreController> {
   const SearchExploreView({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final SearchExploreController controller = Get.put(SearchExploreController());
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: const Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(children: [
-                SearchExplorePage(),
-              ])),
+        primaryColor: const Color.fromARGB(255, 255, 255, 255),
+        scaffoldBackgroundColor: const Color(0xFF1F2A3E), // Dark blue background
+        appBarTheme: AppBarTheme(
+          backgroundColor: const Color(0xFF21005D),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
-    );
-  }
-}
-
-class SearchExplorePage extends StatelessWidget {
-  const SearchExplorePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 440,
-          height: 956,
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(0.00, -1.00),
-              end: Alignment(0, 1),
-              colors: [Color(0xFF050505), Color(0xFF12009B), Color(0xFF12009C)],
-            ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Search Chemical Elements'),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Get.offAll(() => HomeView()); // Navigate to the home page
+            },
           ),
-          child: Stack(
+        ),
+        body: SingleChildScrollView(
+          child: Column(
             children: [
-              Positioned(
-                left: 17,
-                top: 30,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const HomeView()), // Replace HomePage with the actual home page widget
-                    );
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  onChanged: (query) {
+                    // Trigger the search whenever the user types
+                    controller.searchElements(query);
                   },
-                  child: const SizedBox(
-                    width: 42,
-                    height: 42,
-                    child: Icon(
-                      Icons.arrow_back, // Use the back arrow icon
-                      size: 30, // Adjust the size of the icon
-                      color: Colors.white, // Set the icon color to white
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 44,
-                top: 92,
-                child: Container(
-                  width: 351,
-                  height: 54,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFB5B5B5),
-                    shape: RoundedRectangleBorder(
+                  style: const TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: 'Search for a chemical element...',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide.none,
                     ),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+                    prefixIcon: const Icon(Icons.search, color: Color(0xFF21005D)),
                   ),
                 ),
               ),
-              const Positioned(
-                left: -7,
-                top: 105,
-                child: SizedBox(
-                  width: 268,
-                  height: 29,
-                  child: Text(
-                    'Search',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w100,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: -16,
-                top: 199,
-                child: SizedBox(
-                  width: 286,
-                  height: 36,
-                  child: Text(
-                    'Find Your Elemen',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 46,
-                top: 254,
-                child: Container(
-                  width: 70,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          'Helium',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.5899999737739563),
-                            fontSize: 8,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400,
-                            height: 0,
+              Obx(() {
+                // Show loading indicator or search results
+                if (controller.isLoading.value) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (controller.searchResults.isEmpty) {
+                  return const Center(child: Text("No results found."));
+                } else {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: controller.searchResults.length,
+                    itemBuilder: (context, index) {
+                      final element = controller.searchResults[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          title: Text(
+                            element['IUPACName'] ?? 'No Name',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF21005D),
+                            ),
                           ),
+                          subtitle: Text(
+                            'Molecular Weight: ${element['MolecularWeight'] ?? 'N/A'}',
+                            style: const TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF21005D),
+                          ),
+                          onTap: () {
+                            // Handle tap event, navigate to a detailed page if needed
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 46,
-                top: 300,
-                child: Container(
-                  width: 85,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                       Flexible(
-                        child:
-                      Text(
-                        'Natrium',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.5899999737739563),
-                          fontSize: 8,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                       )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 144,
-                top: 300,
-                child: Container(
-                  width: 76,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                       Flexible(
-                        child:
-                      Text(
-                        'Oksigen',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.5899999737739563),
-                          fontSize: 8,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                       )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 240,
-                top: 300,
-                child: Container(
-                  width: 64,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                       Flexible(
-                        child:
-                      Text(
-                        'Carbon',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.5899999737739563),
-                          fontSize: 7,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                       )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 136,
-                top: 254,
-                child: Container(
-                  width: 63,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                       Flexible(
-                        child:
-                      Text(
-                        'Neon',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.5899999737739563),
-                          fontSize: 8,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                       )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 220,
-                top: 254,
-                child: Container(
-                  width: 73,
-                  height: 27,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 1),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFD9D9D9),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                       Flexible(
-                        child:
-                      Text(
-                        'Argon',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.5899999737739563),
-                          fontSize: 8,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                       )
-                    ],
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 327,
-                top: 99,
-                child: SizedBox(
-                  width: 40,
-                  height: 39.09,
-                  child: Icon(
-                    Icons.search, // Use the search icon
-                    size: 40, // You can adjust the size as needed
-                    color: Colors
-                        .white, // Set the color to white or another color of your choice
-                  ),
-                ),
-              ),
+                      );
+                    },
+                  );
+                }
+              }),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 }

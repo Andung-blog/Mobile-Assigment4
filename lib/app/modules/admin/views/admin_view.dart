@@ -78,7 +78,7 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                               onPressed: () {
                                 // Navigate to the appropriate edit page for this element
                                 // Pass element data (symbol, name, atomicNumber)
-                                Get.to(() => HidrogenView(element: element));
+                                Get.to(() => HidrogenView());
                               },
                               icon: const Icon(Icons.edit, color: Colors.white),
                               label: const Text('Edit', style: TextStyle(color: Colors.white)),
