@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/admin/controllers/admin_controller.dart';
+import 'package:myapp/app/modules/detail_unsur/hidrogen/bindings/hidrogen_binding.dart';
 import 'package:myapp/app/modules/detail_unsur/hidrogen/views/hidrogen_view.dart';
 
 class AdminDashboardView extends GetView<AdminDashboardController> {
@@ -8,7 +9,8 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    final AdminDashboardController controller = Get.put(AdminDashboardController());
+    final AdminDashboardController controller =
+        Get.put(AdminDashboardController());
 
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +28,8 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // Vertical scrolling
+        child: SingleChildScrollView(
+          // Vertical scrolling
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -56,40 +59,51 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                 ),
               ),
               const SizedBox(height: 10),
-              SingleChildScrollView(  // Horizontal scrolling for DataTable
+              SingleChildScrollView(
+                // Horizontal scrolling for DataTable
                 scrollDirection: Axis.horizontal,
                 child: Obx(
-                  () => DataTable(
-                    columns: const [
-                      DataColumn(label: Text('Symbol', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF21005D)))),
-                      DataColumn(label: Text('Name', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF21005D)))),
-                      DataColumn(label: Text('Atomic Number', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF21005D)))),
-                      DataColumn(label: Text('Actions', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF21005D)))),
-                    ],
-                    rows: controller.elements.map((element) {
-                      return DataRow(cells: [
-                        DataCell(Text(element.symbol)),
-                        DataCell(Text(element.name)),
-                        DataCell(Text(element.atomicNumber.toString())),
-                        DataCell(
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: ElevatedButton.icon(
-                              onPressed: () {
-                                // Navigate to the appropriate edit page for this element
-                                // Pass element data (symbol, name, atomicNumber)
-                                Get.to(() => HidrogenView());
-                              },
-                              icon: const Icon(Icons.edit, color: Colors.white),
-                              label: const Text('Edit', style: TextStyle(color: Colors.white)),
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF21005D)),
-                            ),
-                          ),
-                        ),
-                      ]);
-                    }).toList(),
-                  ),
-                ),
+                    () => // Example: Navigating from the AdminDashboardView to HidrogenView
+                        DataTable(
+                          columns: const [
+                            DataColumn(label: Text('Symbol')),
+                            DataColumn(label: Text('Name')),
+                            DataColumn(label: Text('Atomic Number')),
+                            DataColumn(label: Text('Actions')),
+                          ],
+                          rows: controller.elements.map((element) {
+                            return DataRow(cells: [
+                              DataCell(Text(element.symbol)),
+                              DataCell(Text(element.name)),
+                              DataCell(Text(element.atomicNumber.toString())),
+                              DataCell(
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    // Navigate and pass the selected element's data to HidrogenView
+                                    Get.to(
+                                      () => HidrogenView(
+                                        symbol: element.symbol,
+                                        elementName: element.name,
+                                        atomicNumber: element.atomicNumber,
+                                        atomicWeight:
+                                            'Atomic Weight Placeholder', // Replace with actual data
+                                        configuration:
+                                            'Configuration Placeholder', // Replace with actual data
+                                        group:
+                                            'Group Placeholder', // Replace with actual data
+                                        period:
+                                            'Period Placeholder', // Replace with actual data
+                                      ),
+                                      binding: HidrogenBinding(),
+                                    );
+                                  },
+                                  icon: const Icon(Icons.edit),
+                                  label: const Text('Edit'),
+                                ),
+                              ),
+                            ]);
+                          }).toList(),
+                        )),
               ),
               const SizedBox(height: 30),
               // Logout Button (placed at the bottom)
@@ -99,8 +113,10 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                     Get.back(); // Navigate back to the login screen
                   },
                   icon: const Icon(Icons.logout, color: Colors.white),
-                  label: const Text('Logout', style: TextStyle(color: Colors.white)),
-                  style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF21005D)),
+                  label: const Text('Logout',
+                      style: TextStyle(color: Colors.white)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF21005D)),
                 ),
               ),
             ],

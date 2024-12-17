@@ -12,7 +12,7 @@ class AdminDashboardController extends GetxController {
   ].obs;
 
   // Method to update an element
-  void updateElement(int index, ElementModel updatedElement) {
+    void updateElement(int index, ElementModel updatedElement) {
     elements[index] = updatedElement;
   }
 }

@@ -65,7 +65,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -100,7 +101,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -135,7 +137,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -170,7 +173,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -191,12 +195,29 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-               Positioned(
+              Positioned(
                 left: 51,
                 top: 230,
                 child: GestureDetector(
                   onTap: () {
-                   Get.to(() => const HidrogenView(), binding: HidrogenBinding());
+                    Get.to(
+                      () => HidrogenView(
+                        symbol:
+                            Get.arguments['symbol'], // Retrieve from arguments
+                        elementName: Get.arguments[
+                            'elementName'], // Retrieve from arguments
+                        atomicNumber: Get.arguments[
+                            'atomicNumber'], // Retrieve from arguments
+                        atomicWeight:
+                            'Atomic Weight Placeholder', // Replace with actual data
+                        configuration:
+                            'Configuration Placeholder', // Replace with actual data
+                        group: 'Group Placeholder', // Replace with actual data
+                        period:
+                            'Period Placeholder', // Replace with actual data
+                      ),
+                      binding: HidrogenBinding(),
+                    );
                   },
                   child: SizedBox(
                     width: 56,
@@ -209,7 +230,8 @@ class HomePage extends StatelessWidget {
                           child: Container(
                             width: 56,
                             height: 51,
-                            decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                            decoration:
+                                const BoxDecoration(color: Color(0xFF5EEF2C)),
                           ),
                         ),
                         const Positioned(
@@ -249,7 +271,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -284,7 +307,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 56,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFF8804A)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFF8804A)),
                         ),
                       ),
                       const Positioned(
@@ -319,7 +343,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -354,7 +379,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -389,7 +415,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -424,7 +451,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -459,7 +487,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -494,7 +523,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -529,7 +559,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -564,7 +595,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -599,7 +631,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -634,7 +667,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -669,7 +703,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -704,7 +739,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -739,7 +775,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -774,7 +811,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -809,7 +847,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -844,7 +883,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -879,7 +919,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF5EEF2C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF5EEF2C)),
                         ),
                       ),
                       const Positioned(
@@ -914,7 +955,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -949,7 +991,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -984,7 +1027,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1019,7 +1063,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1054,7 +1099,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1089,7 +1135,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1124,7 +1171,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1159,7 +1207,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF66AAFF)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF66AAFF)),
                         ),
                       ),
                       const Positioned(
@@ -1194,7 +1243,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -1229,7 +1279,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -1264,7 +1315,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -1299,7 +1351,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -1334,7 +1387,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF00DDBB)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF00DDBB)),
                         ),
                       ),
                       const Positioned(
@@ -1369,7 +1423,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1404,7 +1459,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1439,7 +1495,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1474,7 +1531,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1509,7 +1567,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1544,7 +1603,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xDD4BD462)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xDD4BD462)),
                         ),
                       ),
                       const Positioned(
@@ -1579,7 +1639,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1614,7 +1675,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1649,7 +1711,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1684,7 +1747,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1719,7 +1783,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1754,7 +1819,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1789,7 +1855,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1824,7 +1891,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1859,7 +1927,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1894,7 +1963,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1929,7 +1999,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFF99BBAA)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFF99BBAA)),
                         ),
                       ),
                       const Positioned(
@@ -1964,7 +2035,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -1999,7 +2071,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2034,7 +2107,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2069,7 +2143,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2104,7 +2179,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2139,7 +2215,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2174,7 +2251,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2209,7 +2287,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2244,7 +2323,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2279,7 +2359,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2314,7 +2395,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2349,7 +2431,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2384,7 +2467,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2419,7 +2503,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2454,7 +2539,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2489,7 +2575,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2524,7 +2611,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2559,7 +2647,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2594,7 +2683,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2629,7 +2719,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2664,7 +2755,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2699,7 +2791,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2734,7 +2827,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2769,7 +2863,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2804,7 +2899,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2839,7 +2935,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2874,7 +2971,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2909,7 +3007,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2944,7 +3043,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -2979,7 +3079,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -3014,7 +3115,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -3049,7 +3151,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -3084,7 +3187,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFB4B4)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFB4B4)),
                         ),
                       ),
                       const Positioned(
@@ -3119,7 +3223,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 50.02,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -3293,7 +3398,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -3328,7 +3434,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -3363,7 +3470,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -3398,7 +3506,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFFFEE0C)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFFFEE0C)),
                         ),
                       ),
                       const Positioned(
@@ -3433,7 +3542,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3469,7 +3579,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3504,7 +3615,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3539,7 +3651,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3578,7 +3691,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3613,7 +3727,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3648,7 +3763,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3683,7 +3799,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFDDAACC)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFDDAACC)),
                         ),
                       ),
                       const Positioned(
@@ -3790,7 +3907,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           width: 60,
                           height: 51,
-                          decoration: const BoxDecoration(color: Color(0xFFBBAADD)),
+                          decoration:
+                              const BoxDecoration(color: Color(0xFFBBAADD)),
                         ),
                       ),
                       const Positioned(
@@ -3831,7 +3949,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-             Positioned(
+              Positioned(
                 left: 338,
                 top: 50,
                 child: GestureDetector(
@@ -3839,7 +3957,8 @@ class HomePage extends StatelessWidget {
                     // Navigate to the SettingsView when the icon is tapped
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SearchExploreView()),
+                      MaterialPageRoute(
+                          builder: (context) => const SearchExploreView()),
                     );
                   },
                   child: const SizedBox(
@@ -3848,8 +3967,7 @@ class HomePage extends StatelessWidget {
                     child: Icon(
                       Icons.search, // Replaced FlutterLogo with settings icon
                       size: 30, // Adjust icon size
-                      color: Color.fromARGB(
-                          255, 255, 255, 255), // Icon color
+                      color: Color.fromARGB(255, 255, 255, 255), // Icon color
                     ),
                   ),
                 ),
@@ -3862,7 +3980,8 @@ class HomePage extends StatelessWidget {
                     // Navigate to the SettingsView when the icon is tapped
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SettingsView()),
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsView()),
                     );
                   },
                   child: const SizedBox(
@@ -3871,8 +3990,7 @@ class HomePage extends StatelessWidget {
                     child: Icon(
                       Icons.settings, // Replaced FlutterLogo with settings icon
                       size: 30, // Adjust icon size
-                      color: Color.fromARGB(
-                          255, 255, 255, 255), // Icon color
+                      color: Color.fromARGB(255, 255, 255, 255), // Icon color
                     ),
                   ),
                 ),

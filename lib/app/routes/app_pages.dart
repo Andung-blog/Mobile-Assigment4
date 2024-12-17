@@ -24,31 +24,38 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.REGISTER,
-      page: () =>  const RegisterView(),  
-      binding: RegisterBinding(),  
+      page: () => const RegisterView(),
+      binding: RegisterBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () =>  const LoginView(),  
-      binding: LoginBinding(),  
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
-     GetPage(
+    GetPage(
       name: _Paths.SETTING,
       page: () => const SettingsView(),
       binding: SettingsBinding(),
     ),
     GetPage(
       name: _Paths.SEARCHEXPLORE,
-      page: () => const SearchExploreView(),      
+      page: () => const SearchExploreView(),
     ),
     GetPage(
       name: _Paths.HIDROGEN,
-      page: () => const HidrogenView(),
+      page: () => HidrogenView(
+        c
+        atomicWeight: Get.arguments['atomicWeight'], // Retrieve from arguments
+        configuration:
+            Get.arguments['configuration'], // Retrieve from arguments
+        group: Get.arguments['group'], // Retrieve from arguments
+        period: Get.arguments['period'], // Retrieve from arguments
+      ),
       binding: HidrogenBinding(),
     ),
     GetPage(
