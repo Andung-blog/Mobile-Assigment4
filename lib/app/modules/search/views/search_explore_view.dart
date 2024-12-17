@@ -13,7 +13,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: const Color.fromARGB(255, 255, 255, 255),
-        scaffoldBackgroundColor: const Color(0xFF1F2A3E), // Dark blue background
+        scaffoldBackgroundColor: const Color(0xFF1F2A3E),
         appBarTheme: AppBarTheme(
           backgroundColor: const Color(0xFF21005D),
           iconTheme: IconThemeData(color: Colors.white),
@@ -26,7 +26,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Get.offAll(() => HomeView()); // Navigate to the home page
+              Get.offAll(() => HomeView());
             },
           ),
         ),
@@ -37,7 +37,6 @@ class SearchExploreView extends GetView<SearchExploreController> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
                   onChanged: (query) {
-                    // Trigger the search whenever the user types
                     controller.searchElements(query);
                   },
                   style: const TextStyle(color: Colors.black),
@@ -51,11 +50,23 @@ class SearchExploreView extends GetView<SearchExploreController> {
                     ),
                     contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
                     prefixIcon: const Icon(Icons.search, color: Color(0xFF21005D)),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        controller.isListening.value ? Icons.mic : Icons.mic_none,
+                        color: controller.isListening.value ? Colors.red : Color(0xFF21005D),
+                      ),
+                      onPressed: () {
+                        if (controller.isListening.value) {
+                          controller.stopListening();
+                        } else {
+                          controller.startListening();
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),
               Obx(() {
-                // Show loading indicator or search results
                 if (controller.isLoading.value) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (controller.searchResults.isEmpty) {
@@ -91,7 +102,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
                             color: Color(0xFF21005D),
                           ),
                           onTap: () {
-                            // Handle tap event, navigate to a detailed page if needed
+                            // Handle tap event
                           },
                         ),
                       );
