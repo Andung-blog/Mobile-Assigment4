@@ -41,7 +41,7 @@ class SettingsPage extends GetView<SettingsController> {
           child: Stack(
             children: [
               const Positioned(
-                left: 184,
+                left: 160,
                 top: 30,
                 child: SizedBox(
                   width: 81,
@@ -94,7 +94,7 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               Positioned(
-                left: 171,
+                left: 150,
                 top: 60,
                 child: Container(
                   width: 108,
@@ -116,7 +116,7 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               const Positioned(
-                left: 180,
+                left: 160,
                 top: 185,
                 child: SizedBox(
                   width: 90,
@@ -135,7 +135,7 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               const Positioned(
-                left: 174,
+                left: 153,
                 top: 203,
                 child: SizedBox(
                   width: 102,
@@ -154,7 +154,7 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               Positioned(
-                left: 169,
+                left: 150,
                 top: 224,
                 child: Container(
                   width: 112,
@@ -168,7 +168,7 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               const Positioned(
-                left: 195,
+                left: 175,
                 top: 228,
                 child: Text(
                   'Edit Profile',

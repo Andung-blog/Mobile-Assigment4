@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/login/bindings/login_binding.dart';
+import 'package:myapp/app/modules/login/views/login_view.dart';
 
 class RegisterController extends GetxController {
   // Declare variables for input fields
@@ -6,6 +8,7 @@ class RegisterController extends GetxController {
   var phone = ''.obs;
   var password = ''.obs;
   var confirmPassword = ''.obs;
+  var role = 'client'.obs; // Default role is 'client'
 
   // Validation logic for inputs
   bool validateForm() {
@@ -21,10 +24,15 @@ class RegisterController extends GetxController {
   // A function to handle the sign-up action
   void signUp() {
     if (validateForm()) {
-      // Perform sign-up logic, e.g., API call
-      Get.snackbar("Success", "You are successfully registered!");
+      Get.snackbar("Success", "Registered as ${role.value.toUpperCase()}!");
+      Get.to(() => const LoginView(), binding: LoginBinding()); // Navigate to LoginView
     } else {
       Get.snackbar("Error", "Please check your inputs.");
     }
+  }
+
+  // Function to set role during registration
+  void setRole(String selectedRole) {
+    role.value = selectedRole;
   }
 }

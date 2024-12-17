@@ -9,6 +9,7 @@ abstract class Routes {
   static const SETTING = _Paths.SETTING;
   static const SEARCHEXPLORE = _Paths.SEARCHEXPLORE;
   static const HIDROGEN = _Paths.HIDROGEN;
+  static const ADMIN = _Paths.ADMIN;
 }
 
 abstract class _Paths {
@@ -19,5 +20,6 @@ abstract class _Paths {
   static const SETTING = '/setting';
   static const SEARCHEXPLORE = '/search';
   static const HIDROGEN = '/hidrogen';
+  static const ADMIN = '/admin';
 
 }

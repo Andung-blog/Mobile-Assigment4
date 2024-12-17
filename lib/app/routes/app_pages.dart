@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/admin/bindings/admin_binding.dart';
+import 'package:myapp/app/modules/admin/views/admin_view.dart';
 import 'package:myapp/app/modules/detail_unsur/hidrogen/bindings/hidrogen_binding.dart';
 import 'package:myapp/app/modules/detail_unsur/hidrogen/views/hidrogen_view.dart';
 import 'package:myapp/app/modules/login/bindings/login_binding.dart';
@@ -48,6 +50,11 @@ class AppPages {
       name: _Paths.HIDROGEN,
       page: () => const HidrogenView(),
       binding: HidrogenBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN,
+      page: () => const AdminDashboardView(),
+      binding: AdminDashboardBinding(),
     ),
   ];
 }

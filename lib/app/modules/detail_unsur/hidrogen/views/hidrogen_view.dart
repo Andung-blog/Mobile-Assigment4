@@ -154,7 +154,7 @@ class HidrogenPage extends StatelessWidget {
                             alignment: Alignment.center,
                             children: [
                               Text(
-                                'He', // Text in the center
+                                'Hi', // Text in the center
                                 style: TextStyle(
                                   fontSize: 24, // Font size
                                   fontWeight: FontWeight.bold, // Text weight
