@@ -49,8 +49,10 @@ class AppPages {
     GetPage(
       name: _Paths.HIDROGEN,
       page: () => HidrogenView(
-        c
-        atomicWeight: Get.arguments['atomicWeight'], // Retrieve from arguments
+        symbol: Get.arguments['symbol'], // Retrieve from arguments
+        elementName: Get.arguments['elementName'], // Retrieve from arguments
+        atomicNumber: Get.arguments['atomicNumber'],
+        atomicWeight: 'Atomic Weight Placeholder', // Replace with actual data
         configuration:
             Get.arguments['configuration'], // Retrieve from arguments
         group: Get.arguments['group'], // Retrieve from arguments

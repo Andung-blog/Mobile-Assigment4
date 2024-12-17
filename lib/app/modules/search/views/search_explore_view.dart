@@ -50,18 +50,18 @@ class SearchExploreView extends GetView<SearchExploreController> {
                     ),
                     contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
                     prefixIcon: const Icon(Icons.search, color: Color(0xFF21005D)),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        controller.isListening.value ? Icons.mic : Icons.mic_none,
-                        color: controller.isListening.value ? Colors.red : Color(0xFF21005D),
-                      ),
-                      onPressed: () {
+                    suffixIcon: GestureDetector(
+                      onTap: () {
                         if (controller.isListening.value) {
                           controller.stopListening();
                         } else {
                           controller.startListening();
                         }
                       },
+                      child: Icon(
+                        controller.isListening.value ? Icons.mic : Icons.mic_none,
+                        color: controller.isListening.value ? Colors.red : Color(0xFF21005D),
+                      ),
                     ),
                   ),
                 ),
