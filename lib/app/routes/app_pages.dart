@@ -48,7 +48,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HIDROGEN,
-      page: () => const HidrogenView(),
+      page: () => const HidrogenView(element: null,),
       binding: HidrogenBinding(),
     ),
     GetPage(

@@ -196,7 +196,7 @@ class HomePage extends StatelessWidget {
                 top: 230,
                 child: GestureDetector(
                   onTap: () {
-                   Get.to(() => const HidrogenView(), binding: HidrogenBinding());
+                   Get.to(() => const HidrogenView(element: null,), binding: HidrogenBinding());
                   },
                   child: SizedBox(
                     width: 56,
