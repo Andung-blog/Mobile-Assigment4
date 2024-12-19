@@ -547,7 +547,7 @@ class SettingsPage extends GetView<SettingsController> {
                   onTap: () {
                     // Navigasi ke RegisterView
                     Get.toNamed(
-                        '/register'); // Pastikan Anda sudah menambahkan route '/register' di GetX routes
+                        '/login'); // Pastikan Anda sudah menambahkan route '/register' di GetX routes
                   },
                   child: Container(
                     width: 30,

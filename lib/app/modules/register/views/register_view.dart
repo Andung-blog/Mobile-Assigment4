@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/login/views/login_view.dart';
 import 'package:myapp/app/modules/register/controllers/register_controller.dart';
 
 class RegisterView extends StatelessWidget {
@@ -93,7 +94,8 @@ class RegisterView extends StatelessWidget {
                           decoration: const InputDecoration(
                             hintText: 'Enter Email',
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10),
                           ),
                         ),
                       ),
@@ -118,7 +120,8 @@ class RegisterView extends StatelessWidget {
                           decoration: const InputDecoration(
                             hintText: 'Enter Your Phone Number',
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10),
                           ),
                         ),
                       ),
@@ -144,7 +147,8 @@ class RegisterView extends StatelessWidget {
                           decoration: const InputDecoration(
                             hintText: 'Enter Your Password',
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10),
                           ),
                         ),
                       ),
@@ -170,7 +174,8 @@ class RegisterView extends StatelessWidget {
                           decoration: const InputDecoration(
                             hintText: 'Re-Enter Your Password',
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10),
                           ),
                         ),
                       ),
@@ -195,12 +200,15 @@ class RegisterView extends StatelessWidget {
                                   controller.setRole(newRole);
                                 }
                               },
-                              items: <String>['client', 'admin']
-                                  .map<DropdownMenuItem<String>>((String value) {
+                              items: <String>[
+                                'client',
+                                'admin'
+                              ].map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
                                     child: Text(value.toUpperCase()),
                                   ),
                                 );
@@ -212,33 +220,73 @@ class RegisterView extends StatelessWidget {
                     ),
                     // Sign-Up Button
                     Positioned(
-                      left: 120,
-                      top: 750,
-                      child: GestureDetector(
-                        onTap: () {
-                          controller.signUp();
-                        },
-                        child: Container(
-                          width: 166,
-                          height: 44,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFF4D77AC),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'SIGN UP',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontSize: 25,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w600,
+                      left: 0,
+                      top: 750, // Keep the vertical position as before
+                      right: 0, // Allow centering with slight offset
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment
+                            .start, // Align buttons to the start (left)
+                        children: [
+                          // Add padding to push the buttons more to the right
+                          const SizedBox(
+                              width:
+                                  55), // Adjust this value to control the amount of right shift
+                          GestureDetector(
+                            onTap: () {
+                              controller.signUp();
+                            },
+                            child: Container(
+                              width: 140, // Smaller width for the button
+                              height: 40, // Smaller height for the button
+                              decoration: ShapeDecoration(
+                                color: const Color(0xFF4D77AC),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'SIGN UP',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 20, // Smaller font size
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                          const SizedBox(
+                              width: 15), // Space between the buttons
+                          GestureDetector(
+                            onTap: () {
+                              // Navigate to the LoginView
+                              Get.to(() => const LoginView());
+                            },
+                            child: Container(
+                              width: 140, // Smaller width for the button
+                              height: 40, // Smaller height for the button
+                              decoration: ShapeDecoration(
+                                color: const Color(0xFF21005D),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'LOGIN',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 20, // Smaller font size
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

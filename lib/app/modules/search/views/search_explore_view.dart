@@ -14,8 +14,8 @@ class SearchExploreView extends GetView<SearchExploreController> {
       theme: ThemeData.dark().copyWith(
         primaryColor: const Color.fromARGB(255, 255, 255, 255),
         scaffoldBackgroundColor: const Color(0xFF1F2A3E),
-        appBarTheme: AppBarTheme(
-          backgroundColor: const Color(0xFF21005D),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF21005D),
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
@@ -26,7 +26,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Get.offAll(() => HomeView());
+              Get.offAll(() => const HomeView());
             },
           ),
         ),
@@ -60,7 +60,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
                       },
                       child: Icon(
                         controller.isListening.value ? Icons.mic : Icons.mic_none,
-                        color: controller.isListening.value ? Colors.red : Color(0xFF21005D),
+                        color: controller.isListening.value ? Colors.red : const Color(0xFF21005D),
                       ),
                     ),
                   ),
@@ -97,7 +97,7 @@ class SearchExploreView extends GetView<SearchExploreController> {
                             'Molecular Weight: ${element['MolecularWeight'] ?? 'N/A'}',
                             style: const TextStyle(fontSize: 14, color: Colors.grey),
                           ),
-                          trailing: Icon(
+                          trailing: const Icon(
                             Icons.arrow_forward_ios,
                             color: Color(0xFF21005D),
                           ),

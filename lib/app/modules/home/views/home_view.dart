@@ -10,24 +10,53 @@ import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: const Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(children: [
-                HomePage(),
-              ])),
+    // Trigger the special event check
+    controller.checkSpecialEvent();
+
+    return Obx(() {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: controller.currentTheme.value.copyWith(
+          scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
         ),
-      ),
-    );
+        home: Scaffold(
+          appBar: AppBar(                       
+          ),
+          body: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  const HomePage(),
+                  // Display popup message if there's any special event
+                  if (controller.popupMessage.isNotEmpty)
+                    _buildPopupMessage(context),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+
+  Widget _buildPopupMessage(BuildContext context) {
+    // Show a popup with the message
+    Future.delayed(Duration.zero, () {
+      Get.defaultDialog(
+        title: 'Special Event!',
+        content: Text(controller.popupMessage.value),
+        onConfirm: () {
+          Get.back();
+        },
+      );
+    });
+
+    return Container(); // This is just a placeholder for the popup logic
   }
 }
 
