@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/admin/controllers/admin_controller.dart';
-import 'package:myapp/app/modules/detail_unsur/hidrogen/bindings/hidrogen_binding.dart';
 import 'package:myapp/app/modules/detail_unsur/hidrogen/views/hidrogen_view.dart';
 
 class AdminDashboardView extends GetView<AdminDashboardController> {
@@ -81,20 +80,16 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                                   onPressed: () {
                                     // Navigate and pass the selected element's data to HidrogenView
                                     Get.to(
-                                      () => HidrogenView(
-                                        symbol: element.symbol,
-                                        elementName: element.name,
-                                        atomicNumber: element.atomicNumber,
-                                        atomicWeight:
-                                            'Atomic Weight Placeholder', // Replace with actual data
-                                        configuration:
-                                            'Configuration Placeholder', // Replace with actual data
-                                        group:
-                                            'Group Placeholder', // Replace with actual data
-                                        period:
-                                            'Period Placeholder', // Replace with actual data
-                                      ),
-                                      binding: HidrogenBinding(),
+                                      () => HidrogenView(),
+                                      arguments: {
+                                        'symbol': 'H',
+                                        'elementName': 'Hydrogen',
+                                        'atomicNumber': 1,
+                                        'atomicWeight': '1.008',
+                                        'configuration': '1s1',
+                                        'group': '1',
+                                        'period': '1',
+                                      },
                                     );
                                   },
                                   icon: const Icon(Icons.edit),

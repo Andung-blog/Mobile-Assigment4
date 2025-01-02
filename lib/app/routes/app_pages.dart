@@ -46,19 +46,21 @@ class AppPages {
       name: _Paths.SEARCHEXPLORE,
       page: () => const SearchExploreView(),
     ),
-    GetPage(
+   GetPage(
       name: _Paths.HIDROGEN,
-      page: () => HidrogenView(
-        symbol: Get.arguments['symbol'], // Retrieve from arguments
-        elementName: Get.arguments['elementName'], // Retrieve from arguments
-        atomicNumber: Get.arguments['atomicNumber'],
-        atomicWeight: 'Atomic Weight Placeholder', // Replace with actual data
-        configuration:
-            Get.arguments['configuration'], // Retrieve from arguments
-        group: Get.arguments['group'], // Retrieve from arguments
-        period: Get.arguments['period'], // Retrieve from arguments
-      ),
+      page: () => HidrogenView(),
       binding: HidrogenBinding(),
+      transition: Transition.cupertino, // Optional: Add a transition effect
+      arguments: {
+        // Default arguments (if needed)
+        'symbol': 'H',
+        'elementName': 'Hydrogen',
+        'atomicNumber': 1,
+        'atomicWeight': '1.008',
+        'configuration': '1s1',
+        'group': '1',
+        'period': '1',
+      },
     ),
     GetPage(
       name: _Paths.ADMIN,

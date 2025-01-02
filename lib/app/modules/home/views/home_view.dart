@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/detail_unsur/hidrogen/bindings/hidrogen_binding.dart';
+
 import 'package:myapp/app/modules/detail_unsur/hidrogen/views/hidrogen_view.dart';
 import 'package:myapp/app/modules/search/views/search_explore_view.dart';
 import 'package:myapp/app/modules/setting/views/settings_view.dart';
@@ -23,8 +23,6 @@ class HomeView extends GetView<HomeController> {
           scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
         ),
         home: Scaffold(
-          appBar: AppBar(                       
-          ),
           body: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: SingleChildScrollView(
@@ -230,22 +228,16 @@ class HomePage extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     Get.to(
-                      () => HidrogenView(
-                        symbol:
-                            Get.arguments['symbol'], // Retrieve from arguments
-                        elementName: Get.arguments[
-                            'elementName'], // Retrieve from arguments
-                        atomicNumber: Get.arguments[
-                            'atomicNumber'], // Retrieve from arguments
-                        atomicWeight:
-                            'Atomic Weight Placeholder', // Replace with actual data
-                        configuration:
-                            'Configuration Placeholder', // Replace with actual data
-                        group: 'Group Placeholder', // Replace with actual data
-                        period:
-                            'Period Placeholder', // Replace with actual data
-                      ),
-                      binding: HidrogenBinding(),
+                      () => HidrogenView(),
+                      arguments: {
+                        'symbol': 'H',
+                        'elementName': 'Hydrogen',
+                        'atomicNumber': 1,
+                        'atomicWeight': '1.008',
+                        'configuration': '1s1',
+                        'group': '1',
+                        'period': '1',
+                      },
                     );
                   },
                   child: SizedBox(
@@ -3959,68 +3951,85 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Positioned(
-                left: 116,
-                top: 56,
-                child: SizedBox(
-                  width: 177,
-                  height: 54,
-                  child: Text(
-                    'Tabel Periodik',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
-                      height: 0,
-                    ),
-                  ),
-                ),
-              ),
               Positioned(
-                left: 338,
-                top: 50,
-                child: GestureDetector(
-                  onTap: () {
-                    // Navigate to the SettingsView when the icon is tapped
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SearchExploreView()),
-                    );
-                  },
-                  child: const SizedBox(
-                    width: 40,
-                    height: 40,
-                    child: Icon(
-                      Icons.search, // Replaced FlutterLogo with settings icon
-                      size: 30, // Adjust icon size
-                      color: Color.fromARGB(255, 255, 255, 255), // Icon color
-                    ),
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 100,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF21005D), // Navbar background color
                   ),
-                ),
-              ),
-              Positioned(
-                left: 44,
-                top: 50,
-                child: GestureDetector(
-                  onTap: () {
-                    // Navigate to the SettingsView when the icon is tapped
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SettingsView()),
-                    );
-                  },
-                  child: const SizedBox(
-                    width: 40,
-                    height: 40,
-                    child: Icon(
-                      Icons.settings, // Replaced FlutterLogo with settings icon
-                      size: 30, // Adjust icon size
-                      color: Color.fromARGB(255, 255, 255, 255), // Icon color
-                    ),
+                  child: Stack(
+                    children: [
+                      const Positioned(
+                        left: 116,
+                        top: 56,
+                        child: SizedBox(
+                          width: 177,
+                          height: 54,
+                          child: Text(
+                            'Tabel Periodik',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 338,
+                        top: 50,
+                        child: GestureDetector(
+                          onTap: () {
+                            // Navigate to the SearchExploreView when the icon is tapped
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SearchExploreView(),
+                              ),
+                            );
+                          },
+                          child: const SizedBox(
+                            width: 40,
+                            height: 40,
+                            child: Icon(
+                              Icons.search,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 44,
+                        top: 50,
+                        child: GestureDetector(
+                          onTap: () {
+                            // Navigate to the SettingsView when the icon is tapped
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SettingsView(),
+                              ),
+                            );
+                          },
+                          child: const SizedBox(
+                            width: 40,
+                            height: 40,
+                            child: Icon(
+                              Icons.settings,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

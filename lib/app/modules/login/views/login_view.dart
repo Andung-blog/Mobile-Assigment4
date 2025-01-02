@@ -46,7 +46,7 @@ class LoginView extends StatelessWidget {
                       top: 270,
                       child: Container(
                         width: 350,
-                        height: 430,
+                        height: 480,
                         decoration: BoxDecoration(
                           color: const Color(0xFF3F2E7B),
                           borderRadius: BorderRadius.circular(40),
@@ -110,6 +110,34 @@ class LoginView extends StatelessWidget {
                           child: const Center(
                             child: Text(
                               'SIGN IN',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // Register Button
+                    Positioned(
+                      left: 132,
+                      top: 670,
+                      child: GestureDetector(
+                        onTap: controller.goToRegister, // Fungsi navigasi ke halaman Register
+                        child: Container(
+                          width: 166,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color: Colors.red, // Warna tombol Register
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'REGISTER',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,

@@ -9,6 +9,27 @@ class HidrogenController extends GetxController {
   var group = ''.obs;
   var period = ''.obs;
 
+  @override
+  void onInit() {
+    super.onInit();
+    // Check if arguments are passed and set data
+    if (Get.arguments != null) {
+      setElementDataFromArguments(Get.arguments);
+    }
+  }
+
+  /// Sets the element data dynamically from passed arguments.
+  void setElementDataFromArguments(Map<String, dynamic> args) {
+    symbol.value = args['symbol'] ?? 'Unknown';
+    elementName.value = args['elementName'] ?? 'Unknown';
+    atomicNumber.value = args['atomicNumber'] ?? 0;
+    atomicWeight.value = args['atomicWeight'] ?? 'Unknown';
+    configuration.value = args['configuration'] ?? 'Unknown';
+    group.value = args['group'] ?? 'Unknown';
+    period.value = args['period'] ?? 'Unknown';
+  }
+
+  /// Manually set element data.
   void setElementData({
     required String symbol,
     required String elementName,
