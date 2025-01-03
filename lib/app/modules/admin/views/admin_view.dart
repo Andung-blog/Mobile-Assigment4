@@ -80,7 +80,7 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                                   onPressed: () {
                                     // Navigate and pass the selected element's data to HidrogenView
                                     Get.to(
-                                      () => HidrogenView(),
+                                      () => const HidrogenView(),
                                       arguments: {
                                         'symbol': 'H',
                                         'elementName': 'Hydrogen',

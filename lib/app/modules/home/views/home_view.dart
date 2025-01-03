@@ -228,7 +228,7 @@ class HomePage extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     Get.to(
-                      () => HidrogenView(),
+                      () => const HidrogenView(),
                       arguments: {
                         'symbol': 'H',
                         'elementName': 'Hydrogen',
@@ -4014,7 +4014,7 @@ class HomePage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SettingsView(),
+                                builder: (context) => SettingsView(),
                               ),
                             );
                           },

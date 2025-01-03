@@ -39,7 +39,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SETTING,
-      page: () => const SettingsView(),
+      page: () => SettingsView(),
       binding: SettingsBinding(),
     ),
     GetPage(
@@ -48,10 +48,10 @@ class AppPages {
     ),
    GetPage(
       name: _Paths.HIDROGEN,
-      page: () => HidrogenView(),
+      page: () => const HidrogenView(),
       binding: HidrogenBinding(),
       transition: Transition.cupertino, // Optional: Add a transition effect
-      arguments: {
+      arguments: const {
         // Default arguments (if needed)
         'symbol': 'H',
         'elementName': 'Hydrogen',

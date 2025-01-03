@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:myapp/app/modules/detail_unsur/hidrogen/controllers/hidrogen_controller.dart';
 
 class HidrogenView extends StatelessWidget {
+  const HidrogenView({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Bind the controller to the view
