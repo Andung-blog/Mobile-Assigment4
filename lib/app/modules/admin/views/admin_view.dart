@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/admin/controllers/admin_controller.dart';
-import 'package:myapp/app/modules/detail_unsur/hidrogen/views/hidrogen_view.dart';
+import 'package:myapp/app/modules/admin/views/edit_element_view.dart';
 
 class AdminDashboardView extends GetView<AdminDashboardController> {
   const AdminDashboardView({super.key});
@@ -78,19 +78,10 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                               DataCell(
                                 ElevatedButton.icon(
                                   onPressed: () {
-                                    // Navigate and pass the selected element's data to HidrogenView
-                                    Get.to(
-                                      () => const HidrogenView(),
-                                      arguments: {
-                                        'symbol': 'H',
-                                        'elementName': 'Hydrogen',
-                                        'atomicNumber': 1,
-                                        'atomicWeight': '1.008',
-                                        'configuration': '1s1',
-                                        'group': '1',
-                                        'period': '1',
-                                      },
-                                    );
+                                    // Navigate to EditElementView and pass the index
+                                    Get.to(() => EditElementView(
+                                        index: controller.elements
+                                            .indexOf(element)));
                                   },
                                   icon: const Icon(Icons.edit),
                                   label: const Text('Edit'),
