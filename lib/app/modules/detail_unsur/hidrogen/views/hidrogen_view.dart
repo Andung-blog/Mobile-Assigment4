@@ -7,25 +7,24 @@ class HidrogenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Bind the controller to the view
     final HidrogenController controller = Get.put(HidrogenController());
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF5E35B1),
-        elevation: 0,
+        elevation: 2,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white), // White back arrow
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Get.back(); // Navigate back
+            Get.back();
           },
         ),
         title: Obx(() => Text(
               controller.elementName.value,
               style: const TextStyle(
-                color: Colors.white, // White text for the title
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
+                fontSize: 24,
               ),
             )),
       ),
@@ -39,83 +38,86 @@ class HidrogenView extends StatelessWidget {
           ),
         ),
         child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Obx(() => Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _infoCard('Symbol', controller.symbol.value),
-                          _infoCard('Atomic Number', controller.atomicNumber.value.toString()),
-                          _infoCard('Atomic Weight', controller.atomicWeight.value),
-                          _infoCard('Configuration', controller.configuration.value),
-                          _infoCard('Group', controller.group.value),
-                          _infoCard('Period', controller.period.value),
-                        ],
-                      ),
-                      const SizedBox(width: 20), // Spacer between columns
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _infoCard('Extra Info 1', 'Placeholder'),
-                          _infoCard('Extra Info 2', 'Placeholder'),
-                          _infoCard('Extra Info 3', 'Placeholder'),
-                          _infoCard('Extra Info 4', 'Placeholder'),
-                        ],
-                      ),
-                    ],
-                  )),
-            ),
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: Obx(() => Wrap(
+                spacing: 16,
+                runSpacing: 16,
+                children: [
+                  _infoCard('Symbol', controller.symbol.value),
+                  _infoCard('Atomic Number',
+                      controller.atomicNumber.value.toString()),
+                  _infoCard('Atomic Weight', controller.atomicWeight.value),
+                  _infoCard('Configuration', controller.configuration.value),
+                  _infoCard('Group', controller.group.value),
+                  _infoCard('Period', controller.period.value),
+                  _infoCard('Extra Info 1', 'Placeholder'),
+                  _infoCard('Extra Info 2', 'Placeholder'),
+                  _infoCard('Extra Info 3', 'Placeholder'),
+                  _infoCard('Extra Info 4', 'Placeholder'),
+                ],
+              )),
         ),
       ),
     );
   }
 
-  // Widget for each piece of information
+  // Widget for modern info card with hover animation
   Widget _infoCard(String title, String value) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFFFFFF).withOpacity(0.15),
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.white.withOpacity(0.3)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white70,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+    final isHovered = false.obs;
+
+    return Obx(() => GestureDetector(
+          onTapDown: (_) =>
+              isHovered.value = true, // Saat disentuh, aktifkan animasi
+          onTapUp: (_) =>
+              isHovered.value = false, // Setelah disentuh, kembalikan animasi
+          onTapCancel: () => isHovered.value =
+              false, // Jika sentuhan dibatalkan, kembalikan animasi
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            width: 160,
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: isHovered.value
+                  ? Colors.white
+                      .withOpacity(1.0) // Warna lebih terang saat disentuh
+                  : Colors.white.withOpacity(0.9),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: isHovered.value
+                      ? 20
+                      : 10, // Blur lebih besar saat disentuh
+                  offset: isHovered.value
+                      ? const Offset(0, 10)
+                      : const Offset(0, 5),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Color(0xFF5E35B1),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  value,
+                  style: const TextStyle(
+                    color: Colors.black87,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 4),
-          Text(
-            value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
