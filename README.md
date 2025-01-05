@@ -1,9 +1,9 @@
 # Tabel Periodik Kimia
 
-A new Flutter project.
+Project Mobile Programming.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-Assigment 4 Mobile
+Assigment 6 Mobile
