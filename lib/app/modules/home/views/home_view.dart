@@ -23,19 +23,22 @@ class HomeView extends GetView<HomeController> {
           scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
         ),
         home: Scaffold(
-          body: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  const HomePage(),
-                  // Display popup message if there's any special event
-                  if (controller.popupMessage.isNotEmpty)
-                    _buildPopupMessage(context),
-                ],
+          body: Stack(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: const [
+                      HomePage(),
+                    ],
+                  ),
+                ),
               ),
-            ),
+              // Display popup message for special events
+              _buildPopupMessage(context),
+            ],
           ),
         ),
       );
@@ -43,18 +46,46 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildPopupMessage(BuildContext context) {
-    // Show a popup with the message
     Future.delayed(Duration.zero, () {
       Get.defaultDialog(
         title: 'Special Event!',
-        content: Text(controller.popupMessage.value),
-        onConfirm: () {
-          Get.back();
-        },
+        titleStyle: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: controller.popupColor.value,
+        ),
+        content: Column(
+          children: [
+            Icon(
+              controller.popupIcon.value,
+              size: 60,
+              color: controller.popupColor.value,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              controller.popupMessage.value,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18,
+                color: controller.popupColor.value,
+              ),
+            ),
+          ],
+        ),
+        barrierDismissible: false,
+        confirm: ElevatedButton(
+          onPressed: () {
+            Get.back();
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: controller.popupColor.value,
+          ),
+          child: const Text("OK"),
+        ),
       );
     });
 
-    return Container(); // This is just a placeholder for the popup logic
+    return Container(); // Placeholder untuk logika popup
   }
 }
 
