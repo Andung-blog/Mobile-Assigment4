@@ -11,9 +11,26 @@ class AdminDashboardController extends GetxController {
     ElementModel(symbol: 'B', name: 'Boron', atomicNumber: 5),
   ].obs;
 
+  var quizzes = <QuizModel>[].obs;
+
   // Method to update an element
-    void updateElement(int index, ElementModel updatedElement) {
+  void updateElement(int index, ElementModel updatedElement) {
     elements[index] = updatedElement;
+  }
+
+  // Method to add a quiz
+  void addQuiz(QuizModel quiz) {
+    quizzes.add(quiz);
+  }
+
+  // Method to update a quiz
+  void updateQuiz(int index, QuizModel updatedQuiz) {
+    quizzes[index] = updatedQuiz;
+  }
+
+  // Method to delete a quiz
+  void deleteQuiz(int index) {
+    quizzes.removeAt(index);
   }
 }
 
@@ -27,5 +44,17 @@ class ElementModel {
     required this.symbol,
     required this.name,
     required this.atomicNumber,
+  });
+}
+
+class QuizModel {
+  final String question;
+  final List<String> options;
+  final String correctAnswer;
+
+  QuizModel({
+    required this.question,
+    required this.options,
+    required this.correctAnswer,
   });
 }

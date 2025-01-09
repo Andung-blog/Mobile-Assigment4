@@ -7,7 +7,8 @@ import 'package:permission_handler/permission_handler.dart';  // For permission 
 class SearchExploreController extends GetxController {
   RxList<dynamic> searchResults = <dynamic>[].obs;
   RxBool isLoading = false.obs;
-  RxBool isListening = false.obs;  // Track listening state
+  RxBool isListening = false.obs; 
+  RxList<Map<String, String>> todoList = <Map<String, String>>[].obs; // Track listening state
   late stt.SpeechToText _speech;  // SpeechToText instance
 
   @override
@@ -77,5 +78,22 @@ class SearchExploreController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+  }
+  void addTodoItem(String title) {
+    todoList.add({'title': title, 'status': 'Pending'});
+  }
+
+  void deleteTodoItem(int index) {
+    todoList.removeAt(index);
+  }
+
+  void updateTodoItem(int index, String title) {
+    todoList[index]['title'] = title;
+    todoList.refresh(); // Notify observers
+  }
+
+  void toggleTodoStatus(int index) {
+    todoList[index]['status'] = (todoList[index]['status'] == 'Pending') ? 'Completed' : 'Pending';
+    todoList.refresh();
   }
 }

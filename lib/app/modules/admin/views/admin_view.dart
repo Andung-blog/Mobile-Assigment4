@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/admin/controllers/admin_controller.dart';
+import 'package:myapp/app/modules/admin/views/AddQuizView.dart';
 import 'package:myapp/app/modules/admin/views/edit_element_view.dart';
 
 class AdminDashboardView extends GetView<AdminDashboardController> {
@@ -8,8 +9,7 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    final AdminDashboardController controller =
-        Get.put(AdminDashboardController());
+    final AdminDashboardController controller = Get.put(AdminDashboardController());
 
     return Scaffold(
       appBar: AppBar(
@@ -62,34 +62,48 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                 // Horizontal scrolling for DataTable
                 scrollDirection: Axis.horizontal,
                 child: Obx(
-                    () => // Example: Navigating from the AdminDashboardView to HidrogenView
-                        DataTable(
-                          columns: const [
-                            DataColumn(label: Text('Symbol')),
-                            DataColumn(label: Text('Name')),
-                            DataColumn(label: Text('Atomic Number')),
-                            DataColumn(label: Text('Actions')),
-                          ],
-                          rows: controller.elements.map((element) {
-                            return DataRow(cells: [
-                              DataCell(Text(element.symbol)),
-                              DataCell(Text(element.name)),
-                              DataCell(Text(element.atomicNumber.toString())),
-                              DataCell(
-                                ElevatedButton.icon(
-                                  onPressed: () {
-                                    // Navigate to EditElementView and pass the index
-                                    Get.to(() => EditElementView(
-                                        index: controller.elements
-                                            .indexOf(element)));
-                                  },
-                                  icon: const Icon(Icons.edit),
-                                  label: const Text('Edit'),
-                                ),
-                              ),
-                            ]);
-                          }).toList(),
-                        )),
+                  () => DataTable(
+                    columns: const [
+                      DataColumn(label: Text('Symbol')),
+                      DataColumn(label: Text('Name')),
+                      DataColumn(label: Text('Atomic Number')),
+                      DataColumn(label: Text('Actions')),
+                    ],
+                    rows: controller.elements.map((element) {
+                      return DataRow(cells: [
+                        DataCell(Text(element.symbol)),
+                        DataCell(Text(element.name)),
+                        DataCell(Text(element.atomicNumber.toString())),
+                        DataCell(
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              // Navigate to EditElementView and pass the index
+                              Get.to(() => EditElementView(index: controller.elements.indexOf(element)));
+                            },
+                            icon: const Icon(Icons.edit),
+                            label: const Text('Edit'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF21005D),
+                            ),
+                          ),
+                        ),
+                      ]);
+                    }).toList(),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              // Add Quiz Button
+              ElevatedButton.icon(
+                onPressed: () {
+                  Get.to(() => AddQuizView()); // Navigate to AddQuizView
+                },
+                icon: const Icon(Icons.add, color: Colors.white),
+                label: const Text('Add New Quiz'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF21005D),
+                  foregroundColor: Colors.white,
+                ),
               ),
               const SizedBox(height: 30),
               // Logout Button (placed at the bottom)
@@ -99,10 +113,10 @@ class AdminDashboardView extends GetView<AdminDashboardController> {
                     Get.back(); // Navigate back to the login screen
                   },
                   icon: const Icon(Icons.logout, color: Colors.white),
-                  label: const Text('Logout',
-                      style: TextStyle(color: Colors.white)),
+                  label: const Text('Logout', style: TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF21005D)),
+                    backgroundColor: const Color(0xFF21005D),
+                  ),
                 ),
               ),
             ],

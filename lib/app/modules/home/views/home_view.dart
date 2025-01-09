@@ -25,12 +25,12 @@ class HomeView extends GetView<HomeController> {
         home: Scaffold(
           body: Stack(
             children: [
-              SingleChildScrollView(
+              const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
-                    children: const [
+                    children: [
                       HomePage(),
                     ],
                   ),

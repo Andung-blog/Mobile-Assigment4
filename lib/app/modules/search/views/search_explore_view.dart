@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/home/views/home_view.dart';
 import 'package:myapp/app/modules/search/controllers/search_explore_controller.dart';
+import 'package:myapp/app/modules/search/views/ReactionSimulationView.dart';
+import 'package:myapp/app/modules/search/views/TodoListView.dart';
+import 'package:myapp/app/modules/search/views/MolecularCalculatorView.dart';  // Import the Molecular Calculator View
+import 'package:myapp/app/modules/search/views/PeriodicTableQuizView.dart';  // Import the PeriodicTableQuizView
 
 class SearchExploreView extends GetView<SearchExploreController> {
   const SearchExploreView({super.key});
@@ -29,6 +33,14 @@ class SearchExploreView extends GetView<SearchExploreController> {
               Get.offAll(() => const HomeView());
             },
           ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.list),
+              onPressed: () {
+                Get.to(() => const TodoListView());
+              },
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -48,8 +60,10 @@ class SearchExploreView extends GetView<SearchExploreController> {
                       borderRadius: BorderRadius.circular(25),
                       borderSide: BorderSide.none,
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
-                    prefixIcon: const Icon(Icons.search, color: Color(0xFF21005D)),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 18, horizontal: 16),
+                    prefixIcon:
+                        const Icon(Icons.search, color: Color(0xFF21005D)),
                     suffixIcon: GestureDetector(
                       onTap: () {
                         if (controller.isListening.value) {
@@ -59,8 +73,12 @@ class SearchExploreView extends GetView<SearchExploreController> {
                         }
                       },
                       child: Icon(
-                        controller.isListening.value ? Icons.mic : Icons.mic_none,
-                        color: controller.isListening.value ? Colors.red : const Color(0xFF21005D),
+                        controller.isListening.value
+                            ? Icons.mic
+                            : Icons.mic_none,
+                        color: controller.isListening.value
+                            ? Colors.red
+                            : const Color(0xFF21005D),
                       ),
                     ),
                   ),
@@ -78,13 +96,15 @@ class SearchExploreView extends GetView<SearchExploreController> {
                     itemBuilder: (context, index) {
                       final element = controller.searchResults[index];
                       return Card(
-                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 16),
                         elevation: 4,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: ListTile(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 20),
                           title: Text(
                             element['IUPACName'] ?? 'No Name',
                             style: const TextStyle(
@@ -95,7 +115,8 @@ class SearchExploreView extends GetView<SearchExploreController> {
                           ),
                           subtitle: Text(
                             'Molecular Weight: ${element['MolecularWeight'] ?? 'N/A'}',
-                            style: const TextStyle(fontSize: 14, color: Colors.grey),
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.grey),
                           ),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -110,6 +131,77 @@ class SearchExploreView extends GetView<SearchExploreController> {
                   );
                 }
               }),
+              const SizedBox(height: 20),
+
+              // Button to navigate to ReactionSimulationView
+              ElevatedButton(
+                onPressed: () {
+                  Get.to(() => ReactionSimulationView());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF21005D),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: const Text(
+                  'Go to Reaction Simulation',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // Button to navigate to MolecularCalculatorView
+              ElevatedButton(
+                onPressed: () {
+                  Get.to(() => const MolecularCalculatorView());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF21005D),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: const Text(
+                  'Go to Molecular Calculator',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // Button to navigate to PeriodicTableQuizView
+              ElevatedButton(
+                onPressed: () {
+                  Get.to(() => const PeriodicTableQuizView());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF21005D),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: const Text(
+                  'Go to Periodic Table Quiz',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -20,7 +20,7 @@ class SettingsView extends StatelessWidget {
         TextEditingController(text: controller.userAddress.value);
 
     // Function to fetch current address based on location
-    Future<void> _updateAddress() async {
+    Future<void> updateAddress() async {
       // Check if location services are enabled
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       LocationPermission permission = await Geolocator.checkPermission();
@@ -181,7 +181,7 @@ class SettingsView extends StatelessWidget {
                     children: [
                       ElevatedButton.icon(
                         onPressed:
-                            _updateAddress, // Call function to update address
+                            updateAddress, // Call function to update address
                         icon: const Icon(Icons.location_on),
                         label: const Text("Update Address"),
                         style: ElevatedButton.styleFrom(
